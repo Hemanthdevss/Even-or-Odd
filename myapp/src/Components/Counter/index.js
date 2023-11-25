@@ -8,13 +8,16 @@ class EvenOddApp extends Component {
   };
 
   handleIncrement = () => {
-    const randomValue = Math.floor(Math.random() * 101); // Generate random number between 0 to 100
-    const newCount = this.state.count + randomValue;
+      const randomValue = Math.floor(Math.random() * 101); // Generate random number between 0 to 100
+      
 
-    this.setState({
-      count: newCount,
-      isEven: newCount % 2 === 0,
-    });
+
+    this.setState((prevState) => (
+      { 
+        count: randomValue + prevState.count ,
+        isEven: (randomValue + prevState.count) % 2 === 0
+      }
+    ))
   };
 
   render() {
@@ -28,10 +31,11 @@ class EvenOddApp extends Component {
     }
 
     return (
-      <div className="container">
-        <h1>Count: {count}</h1>
-        <button onClick={this.handleIncrement}>Increment</button>
-        <p>{message}</p>
+      <div className="bg_container">
+        <h1 className="headingStyle">Count {count}</h1>
+        <p className="headingStyle">{message}</p>
+        <button onClick={this.handleIncrement} className="headingStyle">Increment</button>
+        <p> Increase by random number</p>
       </div>
     );
   }
