@@ -8,7 +8,7 @@ class EvenOddApp extends Component {
   };
 
   handleIncrement = () => {
-      const randomValue = Math.floor(Math.random() * 101); // Generate random number between 0 to 100
+      const randomValue = Math.floor(Math.random() * 101); 
       
 
 
